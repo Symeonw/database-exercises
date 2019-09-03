@@ -1,7 +1,7 @@
 use employees;
 show tables from employees;
 describe employees; 
--- data types present are int, date, strings, and booleans
+-- data types present are int, date, strings, and enum
 -- tables that contain numeric type columm: all
 -- tables that contain string type column: all
 -- tables that contain date type column: all
