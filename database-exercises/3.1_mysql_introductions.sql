@@ -1,3 +1,4 @@
+show database;
 -- mysql.user means use the mysql database and read from the user table
 select * from mysql.user;
 -- select the user and host columns from the user table
