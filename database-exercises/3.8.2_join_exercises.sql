@@ -81,7 +81,7 @@ join dept_emp as depte
 on depte.emp_no = employee.emp_no
 join departments as dept
 on dept.dept_no = depte.dept_no
-where dept.dept_name = "Customer Service" and t.to_date = '9999-01-01'
+where dept.dept_name = "Customer Service" and t.to_date = '9999-01-01' and depte.to_date = '9999-01-01'
 group by title;
 
 describe salaries;
