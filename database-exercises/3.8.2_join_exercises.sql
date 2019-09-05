@@ -106,3 +106,45 @@ join departments as dept
 on dept.dept_no = depte.dept_no
 where depte.to_date = '9999-01-01'
 group by dept.dept_no;
+
+describe departments;
+describe dept_emp;
+describe employees;
+describe salaries;
+
+select dept.dept_name, avg(sal.salary) from employees as employee
+join salaries as sal
+on sal.emp_no = employee.emp_no
+join dept_emp as depte
+on depte.emp_no = employee.emp_no
+join departments as dept
+on dept.dept_no = depte.dept_no
+where dept.dept_name = "Sales";
+
+describe departments;
+describe dept_emp;
+describe employees;
+describe salaries;
+
+select first_name, last_name from employees as employee
+join dept_emp as depte
+on depte.emp_no = employee.emp_no
+join departments as dept
+on dept.dept_no = depte.dept_no
+join salaries as sal
+on sal.emp_no = employee.emp_no
+Where dept.dept_name = "Marketing"
+
+describe departments;
+describe dept_emp;
+describe employees;
+describe salaries;
+
+select first_name, last_name, sal.salary, dept.dept_name from employees as employee
+join dept_emp as depte
+on depte.emp_no = employee.emp_no
+join departments as dept
+on dept.dept_no = depte.dept_no
+join salaries as sal
+on sal.emp_no = employee.emp_no
+Where dept.dept_name = "Marketing"
