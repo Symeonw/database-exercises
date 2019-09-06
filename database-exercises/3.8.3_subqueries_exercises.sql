@@ -141,15 +141,3 @@ on sal.emp_no = employee.emp_no
 Where dept.dept_name = "Marketing" and depte.to_date = "9999-01-01" and sal.to_date = "9999-01-01"
 order by sal.salary desc
 limit 1; 
-
-select first_name, last_ name, sal.salary, dept.dept_name
-from departments as dept
-join dept_manager as manager
-on manager.dept_no = dept.dept_no
-join employees as employee
-on employee.emp_no = dept.emp_no
-join salaries as sal
-on sal.emp_no = employee.emp_no
-where manager.to_date='9999-01-01' and sal.to_date='9999-01-01'
-order by sal.salary desc
-limit 1;
