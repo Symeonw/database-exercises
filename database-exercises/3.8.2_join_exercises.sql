@@ -112,7 +112,7 @@ describe dept_emp;
 describe employees;
 describe salaries;
 
-********select dept.dept_name, avg(sal.salary) from departments as dept
+select dept.dept_name, avg(sal.salary) as salary from departments as dept
 join employees as employee
 on employee.emp_no = dept.emp_no
 join salaries as sal
@@ -122,7 +122,7 @@ on depte.emp_no = employee.emp_no
 join departments as dept
 on dept.dept_no = depte.dept_no
 where dept.dept_name = "Sales";
-group by dept.dept_name**********
+group by dept.dept_name
 
 
 describe departments;
@@ -137,18 +137,6 @@ join departments as dept
 on dept.dept_no = depte.dept_no
 join salaries as sal
 on sal.emp_no = employee.emp_no
-Where dept.dept_name = "Marketing"
-
-describe departments;
-describe dept_emp;
-describe employees;
-describe salaries;
-
-select first_name, last_name, sal.salary, dept.dept_name from employees as employee
-join dept_emp as depte
-on depte.emp_no = employee.emp_no
-join departments as dept
-on dept.dept_no = depte.dept_no
-join salaries as sal
-on sal.emp_no = employee.emp_no
-Where dept.dept_name = "Marketing"
+Where dept.dept_name = "Marketing" and depte.to_date = "9999-01-01" and sal.to_date = "9999-01-01"
+order by sal.salary desc
+limit 1; 
