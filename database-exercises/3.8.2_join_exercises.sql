@@ -112,17 +112,18 @@ describe dept_emp;
 describe employees;
 describe salaries;
 
-select dept.dept_name, avg(sal.salary) as salary from departments as dept
+describe departments;
+select dept.dept_name, avg(sal.salary) as salary 
+from departments as dept
+join dept_emp as depte
+on depte.dept_no = dept.dept_no
 join employees as employee
-on employee.emp_no = dept.emp_no
+on employee.emp_no = depte.emp_no
 join salaries as sal
 on sal.emp_no = employee.emp_no
-join dept_emp as depte
-on depte.emp_no = employee.emp_no
-join departments as dept
-on dept.dept_no = depte.dept_no
-where dept.dept_name = "Sales";
 group by dept.dept_name
+order by salary desc
+limit 1;
 
 
 describe departments;
