@@ -169,3 +169,78 @@ where first_name = "Joe"
 
 __________________________________________________
 
+select concat(first_name, " ", last_name) from actor
+where last_name like "%gen%"
+
+__________________________________________________
+
+select first_name, last_name from actor
+where last_name like "%il%"
+order by last_name, first_name
+
+__________________________________________________
+
+select country_id, country from country 
+where country in ("China", "Afghanistan", "Bangladesh")
+
+__________________________________________________
+
+select last_name, count(last_name) from actor
+group by last_name
+order by count(last_name) desc
+
+__________________________________________________
+
+select last_name as full_name, count(last_name) from actor 
+group by last_name having count(*) > 2
+order by count(last_name) desc
+
+__________________________________________________
+
+describe address;
+
+__________________________________________________
+
+select concat(first_name, ' ', last_name), concat(address,", ", city) as address from staff_list
+join staff
+on staff.staff_id = staff_list.ID
+
+__________________________________________________
+
+select concat(first_name, " ", last_name) as full_name, sum(amount) from payment
+join staff
+on staff.staff_id = payment.staff_id
+where payment_date like "2005-08%"
+group by full_name
+
+__________________________________________________
+
+select title, length(actors) - length(replace(actors, ',','')) + 1 from film_list
+
+__________________________________________________
+
+select title, count(inventory.film_id) from inventory
+join film
+on film.film_id = inventory.film_id
+where title = "Hunchback Impossible"
+
+__________________________________________________
+
+select title from film
+where language_id in (select language_id from language where name = "English" ) and title like "K%" or title like "Q%"
+
+__________________________________________________
+
+select * from 
+(select title, concat(first_name, " ", last_name) as full_name from film
+join film_actor 
+on film_actor.film_id = film.film_id
+join film_actor as fm
+on fm.film_id = film.film_id
+join actor
+on actor.actor_id = fm.actor_id 
+where title = "Alone Trip" group by full_name) as title
+
+__________________________________________________
+
+
