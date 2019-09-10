@@ -302,3 +302,79 @@ where date(payment_date) in ( "2005-05-25", '2005-05-27','2005-05-29');
 
 select * from film
 where rating in ("G", "PG-13", "NC-17")
+
+__________________________________________________
+
+select * from payment
+where payment_date between "2005-05-25 00:00:00" and "2005-05-26 23:59:59";
+
+select * from film
+where length between 100 and 120;
+
+__________________________________________________
+
+select * from film
+where description like "A Thoughtful%";
+
+select * from film
+where description like "%Boat";
+
+select * from film
+where description like "%Database%";
+
+__________________________________________________
+
+select * from payment
+limit 20;
+
+select payment_date, amount from payment
+where amount > 5 limit 1000 offset 999;
+
+select * from customer
+limit 99 offset 101;
+
+__________________________________________________
+
+
+select * from film
+order by length;
+
+select distinct rating from film
+order by rating desc;
+
+select payment_date, amount from payment
+order by amount desc
+limit 20;
+
+select title, description, special_features, length, rental_duration from film
+where length > 120 and special_features like "%Behind the%" and rental_duration between 5 and 7
+order by length desc;
+
+__________________________________________________
+
+select customer.first_name as customer_first_name, customer.last_name as customer_last_name, actor.first_name as actor_first_name, actor.last_name as actor_last_name from customer
+left join actor
+on actor.last_name = customer.last_name;
+
+select customer.first_name as customer_first_name, customer.last_name as customer_last_name, actor.first_name as actor_first_name, actor.last_name as actor_last_name from customer
+join actor
+on actor.last_name = customer.last_name;
+
+select city.city, cou.country from city
+left join country as cou
+on cou.country_id = city.country_id;
+describe language;
+describe film;
+select title, description, release_year, lang.name from film
+left join language as lang
+on lang.language_id = film.language_id;
+describe city;
+describe address;
+select first_name,last_name, address, address2, city, district, postal_code from staff
+left join address as addy
+on addy.address_id = staff.address_id
+left join city 
+on city.city_id = addy.city_id
+
+__________________________________________________
+

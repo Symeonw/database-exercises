@@ -39,3 +39,5 @@ select count(*),count(*)/(select count(*) from salaries where to_date="9999-01-0
 from salaries where to_date="9999-01-01"and salary >(select max(salary)-stddev(salary) 
 from salaries)
  
+
+ 
