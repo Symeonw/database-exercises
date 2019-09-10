@@ -255,3 +255,50 @@ order by sum(amount) desc limit 5
 
 __________________________________________________
 
+select * from actor;
+Select last_name from actor;
+select film_id, title, release_year from film;
+
+__________________________________________________
+
+select distinct last_name from actor;
+select distinct postal_code from address;
+select distinct rating from film;
+
+__________________________________________________
+
+select title, description, rating, length from film 
+where length > 180;
+
+select payment_id, amount, payment_date from payment 
+where payment_date >= "2005-05-27";
+
+select payment_id, amount, payment_date from payment
+where payment_date = "2005-05-27";
+
+describe customer;
+ 
+select * from customer
+where last_name like "S%" or first_name like "%N";
+
+select * from customer 
+where active = 0 and last_name like "M%";
+
+select * from category
+where category_id > 4 and name like "C%" or name like"S%" or name like "T%";
+
+select staff_id, first_name, last_name, address_id, picture, email, store_id, active, username, last_update from staff;
+
+select staff_id, first_name, last_name, address_id, picture, email, store_id, active, username, last_update from staff
+where password is not null;
+
+__________________________________________________
+
+select phone, district from address
+where district in ("California", "England", "Taipei", "West Java");
+
+select payment_id, amount, payment_date from payment
+where date(payment_date) in ( "2005-05-25", '2005-05-27','2005-05-29');
+
+select * from film
+where rating in ("G", "PG-13", "NC-17")
